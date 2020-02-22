@@ -40,12 +40,13 @@
           <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.0.3.RELEASE/spring-beans-4.0.3.RELEASE.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.3.RELEASE/spring-context-4.0.3.RELEASE.jar" />
           <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar" />
         </processorPath>
         <module name="event-processor" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="event-processor" target="8" />
+      <module name="event-processor" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

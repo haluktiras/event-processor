@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import tech.pim.eventProcessor.api.StreamProcessor;
 import tech.pim.eventProcessor.model.Article;
@@ -21,6 +22,7 @@ import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
 public final class PickingStreamProcessor implements StreamProcessor {
 
     private final int maxEvents;
@@ -28,14 +30,18 @@ public final class PickingStreamProcessor implements StreamProcessor {
 
     public PickingStreamProcessor(int maxEvents, Duration maxTime) {
         this.maxEvents = maxEvents;
-        Clock fixed = Clock.fixed(Instant.now(), ZoneId.systemDefault());
-        this.maxTime = Clock.offset(fixed, maxTime);
+        this.maxTime = fixTheTime(maxTime);
     }
 
     private final ObjectMapper mapper = new ObjectMapper()
             .registerModule(new JavaTimeModule())
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
             .setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+
+    private Clock fixTheTime(Duration maxTime) {
+        Clock fixedTime = Clock.fixed(Instant.now(), ZoneId.systemDefault());
+        return Clock.offset(fixedTime, maxTime);
+    }
 
     @Override
     public void process(InputStream source, OutputStream sink) throws IOException {
