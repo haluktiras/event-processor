@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/haluktiras/testing-event-processor.svg?style=svg)](https://app.circleci.com/pipelines/github/haluktiras/event-processor)
+
 ## Context ##
 
 In a nutshell, the assignment revolves around reading JSON events from an
