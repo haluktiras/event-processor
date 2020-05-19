@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/haluktiras/testing-event-processor.svg?style=svg)](https://app.circleci.com/pipelines/github/haluktiras/event-processor)
+[![CircleCI](https://circleci.com/gh/haluktiras/event-processor.svg?style=svg)](https://app.circleci.com/pipelines/github/haluktiras/event-processor)
 
 ## Context ##
 
