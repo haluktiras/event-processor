@@ -12,7 +12,7 @@
         <version.jdk>11</version.jdk>
         <version.mapstruct>1.2.0.Final</version.mapstruct>
         <version.lombok>1.18.10</version.lombok>
-        <version.jakson>2.10.2</version.jakson>
+        <version.jakson>2.12.6.1</version.jakson>
     </properties>
 
     <dependencyManagement>
